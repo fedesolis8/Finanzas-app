@@ -88,7 +88,7 @@ function CrearUsuario({ onClose, onCreado }) {
           <button className={rol === "normal" ? "on" : ""} onClick={() => setRol("normal")}>Normal</button>
           <button className={rol === "admin" ? "on" : ""} onClick={() => setRol("admin")}>Admin</button>
         </div>
-        {err && <div className="fin-auth-err" style={{ marginTop: 14 }}>{err}</div>}
+        {err && <div className="au-err" style={{ marginTop: 14 }}>{err}</div>}
         <div className="fin-modal-actions">
           <button className="ghost" onClick={onClose}>Cancelar</button>
           <button className="primary" onClick={submit} disabled={saving || !usuario.trim() || pass.length < 4}>

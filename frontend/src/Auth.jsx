@@ -25,40 +25,67 @@ export default function Auth({ onAuth }) {
   };
 
   return (
-    <div className="fin-auth">
-      <div className="fin-auth-brand">
-        <div className="logo">💸</div>
-        <h1>Finanzas</h1>
-        <p>{modo === "login" ? "Ingresá a tu cuenta" : "Creá tu cuenta"}</p>
+    <div className="au-wrap">
+      {/* fondo animado */}
+      <div className="au-bg">
+        <div className="au-orb au-orb1" />
+        <div className="au-orb au-orb2" />
+        <div className="au-orb au-orb3" />
+        <div className="au-grain" />
       </div>
 
-      <label>Usuario</label>
-      <input
-        autoCapitalize="none" autoCorrect="off" value={usuario}
-        onChange={(e) => setUsuario(e.target.value)}
-        placeholder="tu usuario"
-        onKeyDown={(e) => e.key === "Enter" && submit()}
-      />
+      <div className="au-card">
+        <div className="au-brand">
+          <div className="au-coin">
+            <span className="au-coin-face">$</span>
+          </div>
+          <h1 className="au-title">
+            <span style={{ animationDelay: ".05s" }}>F</span>
+            <span style={{ animationDelay: ".10s" }}>i</span>
+            <span style={{ animationDelay: ".15s" }}>n</span>
+            <span style={{ animationDelay: ".20s" }}>a</span>
+            <span style={{ animationDelay: ".25s" }}>n</span>
+            <span style={{ animationDelay: ".30s" }}>z</span>
+            <span style={{ animationDelay: ".35s" }}>a</span>
+            <span style={{ animationDelay: ".40s" }}>s</span>
+          </h1>
+          <p className="au-tagline">Tu dinero, mes a mes</p>
+        </div>
 
-      <label>Contraseña</label>
-      <input
-        type="password" value={pass}
-        onChange={(e) => setPass(e.target.value)}
-        placeholder="••••••••"
-        onKeyDown={(e) => e.key === "Enter" && submit()}
-      />
+        <div className="au-form">
+          <div className="au-field">
+            <label>Usuario</label>
+            <input
+              autoCapitalize="none" autoCorrect="off" value={usuario}
+              onChange={(e) => setUsuario(e.target.value)}
+              placeholder="tu usuario"
+              onKeyDown={(e) => e.key === "Enter" && submit()}
+            />
+          </div>
+          <div className="au-field">
+            <label>Contraseña</label>
+            <input
+              type="password" value={pass}
+              onChange={(e) => setPass(e.target.value)}
+              placeholder="••••••••"
+              onKeyDown={(e) => e.key === "Enter" && submit()}
+            />
+          </div>
 
-      {err && <div className="fin-auth-err">{err}</div>}
+          {err && <div className="au-err">{err}</div>}
 
-      <button className="fin-auth-btn" onClick={submit} disabled={loading}>
-        {loading ? "Un momento…" : modo === "login" ? "Ingresar" : "Crear cuenta"}
-      </button>
+          <button className="au-btn" onClick={submit} disabled={loading}>
+            <span>{loading ? "Un momento…" : modo === "login" ? "Ingresar" : "Crear cuenta"}</span>
+            {!loading && <span className="au-btn-arrow">→</span>}
+          </button>
 
-      <div className="fin-auth-switch">
-        {modo === "login" ? "¿No tenés cuenta? " : "¿Ya tenés cuenta? "}
-        <button onClick={() => { setModo(modo === "login" ? "registro" : "login"); setErr(""); }}>
-          {modo === "login" ? "Registrate" : "Ingresá"}
-        </button>
+          <div className="au-switch">
+            {modo === "login" ? "¿No tenés cuenta? " : "¿Ya tenés cuenta? "}
+            <button onClick={() => { setModo(modo === "login" ? "registro" : "login"); setErr(""); }}>
+              {modo === "login" ? "Registrate" : "Ingresá"}
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

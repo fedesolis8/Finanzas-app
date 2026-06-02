@@ -313,7 +313,7 @@ export default function Dashboard({ onLogout }) {
       <nav className="fin-nav">
         <button className={view === "mes" ? "on" : ""} onClick={() => setView("mes")}><span className="ico">📊</span>Mes</button>
         <button className={view === "evolucion" ? "on" : ""} onClick={() => setView("evolucion")}><span className="ico">📈</span>Evolución</button>
-        <button className="fin-fab" onClick={() => setModal(true)}>+</button>
+        <button className="fin-fab" onClick={() => setModal(true)}><span className="ico">+</span></button>
         <button className={view === "subs" ? "on" : ""} onClick={() => setView("subs")}><span className="ico">🔁</span>Subs</button>
         <button className={view === "config" ? "on" : ""} onClick={() => setView("config")}><span className="ico">⚙️</span>Ajustes</button>
       </nav>
